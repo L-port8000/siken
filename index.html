@@ -79,7 +79,7 @@ ul {
   padding-left: 20px;
 }
 
-/* Uptime bar */
+/* Uptime */
 .uptime {
   margin-top: 8px;
   margin-bottom: 16px;
@@ -87,7 +87,6 @@ ul {
 
 .uptime-label {
   font-size: 0.85rem;
-  color: var(--sub);
   margin-bottom: 4px;
 }
 
@@ -102,10 +101,24 @@ ul {
 
 .uptime-fill {
   height: 100%;
-  background: linear-gradient(90deg, #22c55e, #38bdf8);
   border-radius: 999px;
   transition: width 0.5s ease;
 }
+
+/* ===== Uptime color states ===== */
+.uptime-good .uptime-fill {
+  background: linear-gradient(90deg, #22c55e, #38bdf8);
+}
+.uptime-warn .uptime-fill {
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+}
+.uptime-bad .uptime-fill {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.uptime-good .uptime-label { color: #22c55e; }
+.uptime-warn .uptime-label { color: #facc15; }
+.uptime-bad  .uptime-label { color: #ef4444; }
 
 /* SNS cards */
 .accounts a {
@@ -157,12 +170,20 @@ footer {
   </p>
 </section>
 
-<section>
-  <h2>なに書こう</h2>
-  <ul>
-    <li>L_port8000 乗っ取り事件</li>
-  </ul>
+<section class="accounts">
+  <h2>目次</h2>
+<li>blog</li>
+  <a href="https://l-ituki8000.f5.si/blog/pages/2026-1-23-1.html" target="_blank">
+    L_port8000 乗っ取り事件
+  </a>
+<!--
+<li>tools</li>
+  <a href="https://L-port8000.github.io/tools/" target="_blank">
+    name
+  </a>
+-->
 </section>
+
 
 <section>
   <h2>Xアカウント一覧</h2>
@@ -170,7 +191,7 @@ footer {
   <ul>
     <li>
       <strong>L_port8000：</strong> 乗っ取り済み（Xに復元要請中）
-      <div class="uptime">
+      <div class="uptime uptime-bad">
         <div class="uptime-label">Uptime: 不明</div>
         <div class="uptime-bar">
           <div class="uptime-fill" style="width:0%"></div>
@@ -180,7 +201,7 @@ footer {
 
     <li>
       <strong>L_port9999：</strong> 凍結済み、復元見込みなし
-      <div class="uptime">
+      <div class="uptime uptime-bad">
         <div class="uptime-label">Uptime: 0%</div>
         <div class="uptime-bar">
           <div class="uptime-fill" style="width:0%"></div>
@@ -190,7 +211,7 @@ footer {
 
     <li>
       <strong>L_port443：</strong> 凍結済み、復元見込みなし
-      <div class="uptime">
+      <div class="uptime uptime-bad">
         <div class="uptime-label">Uptime: 0%</div>
         <div class="uptime-bar">
           <div class="uptime-fill" style="width:0%"></div>
@@ -200,35 +221,34 @@ footer {
 
     <li>
       <strong>L_port8080：</strong> 現本垢（時々返信規制）
-      <div class="uptime">
+      <div class="uptime uptime-good">
         <div class="uptime-label">Uptime: 72%</div>
         <div class="uptime-bar">
           <div class="uptime-fill" style="width:72%"></div>
         </div>
       </div>
     </li>
-     
+
     <li>
-      <strong>L_por1194：</strong> 現サブ垢、特に異常なし
-      <div class="uptime">
-        <div class="uptime-label">Uptime: 72%</div>
+      <strong>L_port1194：</strong> 現サブ垢、特に異常なし
+      <div class="uptime uptime-good">
+        <div class="uptime-label">Uptime: 48%</div>
         <div class="uptime-bar">
-          <div class="uptime-fill" style="width:72%"></div>
+          <div class="uptime-fill" style="width:48%"></div>
         </div>
       </div>
     </li>
-     
   </ul>
 </section>
 
 <section class="accounts">
   <h2>SNS</h2>
-  <a href="https://x.com/L_port8000" target="_blank">X旧: @L_port8000</a>
-  <a href="https://x.com/L_port8080" target="_blank">X現: @L_port8080</a>
+  <a href="https://x.com/L_port8080" target="_blank">X: @L_port8080</a>
+  <a href="https://x.com/L_port1194" target="_blank">X: @L_port1194</a>
   <a href="https://bsky.app/profile/l-port8000.bsky.social" target="_blank">Bluesky</a>
   <a href="https://note.com/L_port8000" target="_blank">note</a>
   <a href="https://youtube.com/L_port8000" target="_blank">YouTube</a>
-  <a href="https://github.com/L_port8000" target="_blank">GitHub</a>
+  <a href="https://github.com/L-port8000" target="_blank">GitHub</a>
   <a href="https://writening.net/page?6nvSxT" target="_blank">アカウント情報</a>
 </section>
 
