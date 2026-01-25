@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="../transparent.png">
-<title>blog | L_port8000</title>
+<title>L_port8000 blog</title>
 
 <style>
 :root {
@@ -38,6 +38,30 @@ header p {
   margin-top: 8px;
   color: #666;
   font-size: 0.95rem;
+}
+
+/* 検索バー */
+.search-container {
+  margin-top: 20px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.search-bar {
+  padding: 12px 16px;
+  width: 100%;
+  max-width: 920px;
+  border-radius: 16px;
+  border: 1px solid var(--sub);
+  background: rgba(17,24,39,.92);
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: var(--accent);
 }
 
 /* Main */
@@ -115,23 +139,42 @@ footer {
   <p>ゲーム / プログラミング / ガジェット</p>
 </header>
 
-<main>
-
-<a href="./pages/2026-1-23-1.html" class="article-card">
-  <h2>L_port8000 乗っ取り事件</h2>
-  <p>2026-01-23 / 注意喚起 / X / 乗っ取り</p>
-</a>
-
-<!-- トップページに戻るボタン -->
-<div style="text-align:center;">
-  <a href="../index.html" class="back-button">トップページに戻る</a>
+<div class="search-container">
+  <input type="text" id="search-bar" class="search-bar" placeholder="記事を検索..." oninput="filterArticles()">
 </div>
+   <br>
 
+<main>
+  <a href="./pages/2026-1-23-1.html" class="article-card" data-title="L_port8000 乗っ取り事件">
+    <h2>L_port8000 乗っ取り事件</h2>
+    <p>2026-01-23 / 注意喚起 / X / 乗っ取り</p>
+  </a>
+
+  <!-- トップページに戻るボタン -->
+  <div style="text-align:center;">
+    <a href="../index.html" class="back-button">トップページに戻る</a>
+  </div>
 </main>
 
 <footer>
-© 2026 Regia_:0000
+  © 2026 Regia_:0000
 </footer>
+
+<script>
+  function filterArticles() {
+    const searchQuery = document.getElementById('search-bar').value.toLowerCase();
+    const articles = document.querySelectorAll('.article-card');
+
+    articles.forEach(article => {
+      const title = article.getAttribute('data-title').toLowerCase();
+      if (title.includes(searchQuery)) {
+        article.style.display = 'block';
+      } else {
+        article.style.display = 'none';
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
